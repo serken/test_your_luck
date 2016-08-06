@@ -7,12 +7,14 @@ class ProfilesController < ApplicationController
   end
 
   def deposit
+    render :text, partial: 'deposit'
   end
 
   def withdraw
+    render :text, partial: 'withdraw'
   end
 
   def edit
-    render 'users/registrations/edit'
+    render :text, partial: 'edit_profile'
   end
 end
