@@ -3,8 +3,7 @@ class ProfilesController < ApplicationController
   end
 
   def make_deposit
-    current_user.score += amount_params[:amount].to_f
-    if current_user.save
+    if current_user.deposit amount_params[:amount].to_f
       flash[:notice] = 'Updated'
     else
       flash[:error] = 'Something went wrong'
@@ -12,8 +11,7 @@ class ProfilesController < ApplicationController
   end
 
   def make_withdraw
-    current_user.score -= amount_params[:amount].to_f
-    if current_user.save
+    if current_user.withdraw amount_params[:amount].to_f
       flash[:notice] = 'Updated'
     else
       flash[:error] = 'Something went wrong'

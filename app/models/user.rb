@@ -6,7 +6,24 @@ class User < ApplicationRecord
   has_many :first_deals, :class_name => 'Deal', :foreign_key => 'first_user_id'
   has_many :second_deals, :class_name => 'Deal', :foreign_key => 'second_user_id'
 
+
   def deals
     first_deals + second_deals
+  end
+
+  def withdraw(val)
+    score -= val
+    save
+  end
+
+  def deposit(val)
+    score += val
+    save
+  end
+
+  private
+
+  def winned_deals
+    deals.where(winner: self.id)
   end
 end

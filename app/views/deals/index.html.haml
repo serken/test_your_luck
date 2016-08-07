@@ -1,0 +1,41 @@
+Test your luck
+
+%br
+
+= label 'make a bet', ''
+= text_field 'bet', 'bet'
+
+.btn.btn-default.make_a_bet
+  Bet
+
+%br
+= render partial: 'opened_deals'
+
+%br
+Closed deals
+%table
+  %th
+    %td
+      Deal#
+    %td
+      First User
+    %td
+      Second User
+    %td
+      Bet
+    %td
+      Winner
+  = Deal.closed.each do |deal|
+    %tr
+      %td
+        = deal.id
+      %td
+        = deal.first_user.email
+      %td
+        = deal.second_user.email
+      %td
+        = deal.bet
+      %td
+        = deal.winner
+
+

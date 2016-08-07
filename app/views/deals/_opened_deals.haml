@@ -1,0 +1,21 @@
+Opened deals
+%table
+  %th
+    %td
+      Deal#
+    %td
+      User
+    %td
+      Bet
+    %td
+  = Deal.opened.each do |deal|
+    %tr
+      %td
+        = deal.id
+      %td
+        = deal.first_user.email
+      %td
+        = deal.bet
+      %td
+        .btn.btn-default.accept_deal
+          Accept
