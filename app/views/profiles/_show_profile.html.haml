@@ -1,0 +1,13 @@
+%br
+
+%div.field
+  = label :score, 'Score'
+  = "#{current_user.score} $"
+
+%div.field
+  = label :email, 'Email'
+  = current_user.email
+
+%div.field
+  = label :ref, 'Refer'
+  = current_user.ref

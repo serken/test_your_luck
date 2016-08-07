@@ -10,7 +10,8 @@
 
   <body>
     <%= render 'layouts/header' %>
-    <div class="inner_body">
+    <div class="container inner_body">
+      <%= flash_messages %>
       <%= yield %>
     </div>
   </body>

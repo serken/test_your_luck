@@ -1,4 +1,4 @@
-%div{class: 'btn btn-default actions', data: {href: '/profile/edit'}}
+%div{class: 'btn btn-default actions', data: {href: '/profile/show_profile'}}
   Edit profile
 |
 %div{class: 'btn btn-default actions', data: {href: '/profile/wallets'}}
@@ -13,3 +13,4 @@
 %br
 
 %div.inner_loads
+  = render partial: 'show_profile'

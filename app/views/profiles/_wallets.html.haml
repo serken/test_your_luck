@@ -1,7 +1,11 @@
-- Wallet::TYPES.each do |type|
-  = label type, type
-  = text_field type, type
+= form_for current_user, url: '/profile/update_profile', html: { method: :patch } do |f|
 
-  %br
-.btn.btn-default
-  Submit
+  - Wallet::TYPES.each do |wallet_type|
+    %div.field
+      = label wallet_type, wallet_type
+      %br
+      = f.text_field "#{wallet_type}_wallet"
+
+
+  %div.actions
+    = f.submit "Update"

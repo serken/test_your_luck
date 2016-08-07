@@ -1,7 +1,6 @@
-class Wallet < ActiveRecord::Base
-  has_one :user
+class Wallet
 
-  TYPES = %w(PerfectMoney OkPay Payeer)
+  TYPES = %w(pm okpay payeer)
 
   def make_deposit
   end
