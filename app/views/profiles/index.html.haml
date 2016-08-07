@@ -1,16 +1,21 @@
-%div{class: 'btn btn-default actions', data: {href: '/profile/show_profile'}}
+%div{class: 'btn btn-default actions', id: 'show_profile', data: {href: '/profile/show_profile'}}
   Edit profile
 |
-%div{class: 'btn btn-default actions', data: {href: '/profile/wallets'}}
+%div{class: 'btn btn-default actions', id: 'wallets',data: {href: '/profile/wallets'}}
   Wallets
 |
-%div{class: 'btn btn-default actions', data: {href: '/profile/deposit'}}
+%div{class: 'btn btn-default actions', id: 'deposit',data: {href: '/profile/deposit'}}
   Deposit
 |
-%div{class: 'btn btn-default actions', data: {href: '/profile/withdraw'}}
+%div{class: 'btn btn-default actions', id: 'withdraw',data: {href: '/profile/withdraw'}}
   Withdraw
 
 %br
-
-%div.inner_loads
+%div.inner_loads.show_profile
   = render partial: 'show_profile'
+%div.inner_loads.wallets.hides
+  = render partial: 'wallets'
+%div.inner_loads.deposit.hides
+  = render partial: 'deposit'
+%div.inner_loads.withdraw.hides
+  = render partial: 'withdraw'

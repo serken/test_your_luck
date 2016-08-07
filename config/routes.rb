@@ -8,7 +8,7 @@ Rails.application.routes.draw do
   get '/profile/wallets', to: 'profiles#wallets'
   get '/profile/deposit', to: 'profiles#deposit'
   get '/profile/withdraw', to: 'profiles#withdraw'
-  patch '/profile/update_profile', to: 'profiles#update_profile'
+  post '/profile/update_profile', to: 'profiles#update_profile'
 
   post '/profile/make_deposit', to: 'profiles#make_deposit'
   post '/profile/make_withdraw', to: 'profiles#make_withdraw'
