@@ -1,9 +1,4 @@
 $ ->
-  $('.actions').on 'click', ->
-    $('.inner_loads').hide()
-    id = @.id
-    $('.' + id).show()
-
   $('.make_deposit').on 'click', ->
     $.post($(@).data('href'), {amount: $('#deposit_amount').val() })
       .success ->

@@ -1,21 +1,24 @@
-%div{class: 'btn btn-default actions', id: 'show_profile', data: {href: '/profile/show_profile'}}
-  Edit profile
-|
-%div{class: 'btn btn-default actions', id: 'wallets',data: {href: '/profile/wallets'}}
-  Wallets
-|
-%div{class: 'btn btn-default actions', id: 'deposit',data: {href: '/profile/deposit'}}
-  Deposit
-|
-%div{class: 'btn btn-default actions', id: 'withdraw',data: {href: '/profile/withdraw'}}
-  Withdraw
+%ul.nav.nav-tabs{role: 'tablist'}
+  %li.nav-item
+    %a.nav-link.active{'data-toggle': 'tab', href: "#profile", role: 'tab'}
+      Edit profile
+  %li.nav-item
+    %a.nav-link{'data-toggle': 'tab', href: "#wallets", role: 'tab'}
+      Wallets
+  %li.nav-item
+    %a.nav-link{'data-toggle': 'tab', href: "#deposit", role: 'tab'}
+      Deposit
+  %li.nav-item
+    %a.nav-link{'data-toggle': 'tab', href: "#withdraw", role: 'tab'}
+      Withdraw
 
 %br
-%div.inner_loads.show_profile
-  = render partial: 'show_profile'
-%div.inner_loads.wallets.hides
-  = render partial: 'wallets'
-%div.inner_loads.deposit.hides
-  = render partial: 'deposit'
-%div.inner_loads.withdraw.hides
-  = render partial: 'withdraw'
+%div.tab-content
+  %div.tab-pane.active{role: 'tabpanel', id: 'profile'}
+    = render partial: 'show_profile'
+  %div.tab-pane{role: 'tabpanel', id: 'wallets'}
+    = render partial: 'wallets'
+  %div.tab-pane{role: 'tabpanel', id: 'deposit'}
+    = render partial: 'deposit'
+  %div.tab-pane{role: 'tabpanel', id: 'withdraw'}
+    = render partial: 'withdraw'

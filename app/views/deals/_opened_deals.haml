@@ -1,14 +1,15 @@
-Opened deals
-%table
-  %th
-    %td
+%h3
+  Opened deals
+%table.table.table-bordered
+  %thead.thead-inverse
+    %th
       Deal#
-    %td
+    %th
       User
-    %td
+    %th
       Bet
-    %td
-  = Deal.opened.each do |deal|
+    %th
+  - Deal.opened.each do |deal|
     %tr
       %td
         = deal.id
@@ -17,5 +18,5 @@ Opened deals
       %td
         = deal.bet
       %td
-        .btn.btn-default.accept_deal
+        %button.btn.btn-secondary.accept_deal
           Accept
