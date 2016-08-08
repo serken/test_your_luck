@@ -10,6 +10,9 @@
     - if current_user
       %li
         %li.nav-item
+          %a.nav-link
+            = "Your Score: #{current_user.score} $"
+        %li.nav-item
           %a.nav-link{:href => "/profile"} Profile Settings
         %li.nav-item
           %a.nav-link{:href => "/users/sign_out", 'data-method': :delete} Logout

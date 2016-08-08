@@ -16,7 +16,7 @@ ActiveRecord::Schema.define(version: 20160807144726) do
     t.integer  "first_user_id"
     t.integer  "second_user_id"
     t.integer  "winner"
-    t.integer  "price"
+    t.integer  "bet"
     t.string   "state"
     t.datetime "created_at",     null: false
     t.datetime "updated_at",     null: false

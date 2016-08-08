@@ -14,7 +14,7 @@
       %td
         = deal.id
       %td
-        = deal.first_user.email
+        = deal.first_user.try(:email)
       %td
         = deal.bet
       %td

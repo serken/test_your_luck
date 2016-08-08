@@ -8,16 +8,26 @@ class User < ApplicationRecord
 
 
   def deals
-    first_deals + second_deals
+    self.first_deals + self.second_deals
+  end
+
+  def bet(val)
+    self.score -= val
+    save
+  end
+
+  def win(val)
+    self.score += val
+    save
   end
 
   def withdraw(val)
-    score -= val
+    self.score -= val
     save
   end
 
   def deposit(val)
-    score += val
+    self.score += val
     save
   end
 

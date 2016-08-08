@@ -13,5 +13,5 @@ Rails.application.routes.draw do
   post '/profile/make_deposit', to: 'profiles#make_deposit'
   post '/profile/make_withdraw', to: 'profiles#make_withdraw'
 
-  get '/deals', to: 'deals#index'
+  resources :deals
 end

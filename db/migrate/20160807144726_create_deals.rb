@@ -4,7 +4,7 @@ class CreateDeals < ActiveRecord::Migration[5.0]
       t.integer :first_user_id
       t.integer :second_user_id
       t.integer :winner
-      t.integer :price
+      t.integer :bet
       t.string  :state
 
       t.timestamps
