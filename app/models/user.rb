@@ -5,7 +5,7 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :trackable, :validatable
   has_many :first_deals, :class_name => 'Deal', :foreign_key => 'first_user_id'
   has_many :second_deals, :class_name => 'Deal', :foreign_key => 'second_user_id'
-
+  before_save :validate_score
 
   def deals
     self.first_deals + self.second_deals
@@ -35,5 +35,11 @@ class User < ApplicationRecord
 
   def winned_deals
     deals.where(winner: self.id)
+  end
+
+  def validate_score
+    if score < 0
+      raise 'Not enough money. Make a deposit'
+    end
   end
 end

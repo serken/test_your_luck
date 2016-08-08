@@ -2,11 +2,7 @@ Test your luck
 
 %br
 
-= label 'make a bet', ''
-= text_field 'bet', 'bet'
-
-%button.btn.btn-secondary.make_a_bet
-  Bet
+= render partial: 'make_a_deal'
 
 %br
 = render partial: 'opened_deals'
@@ -26,7 +22,7 @@ Test your luck
       Bet
     %th
       Winner
-  - Deal.closed.each do |deal|
+  - @closed_deals.each do |deal|
     %tr
       %td
         = deal.id

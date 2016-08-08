@@ -1,5 +1,5 @@
 class Deal < ActiveRecord::Base
-  belongs_to :first_user, class_name: 'User', foreign_key: 'first_user_id', optional: true
+  belongs_to :first_user, class_name: 'User', foreign_key: 'first_user_id'
   belongs_to :second_user, class_name: 'User', foreign_key: 'second_user_id', optional: true
   belongs_to :winner, class_name: 'User', foreign_key: 'winner', optional: true
   scope :opened, -> { where(state: 'open') }

@@ -9,7 +9,7 @@
     %th
       Bet
     %th
-  - Deal.opened.each do |deal|
+  - @opened_deals.each do |deal|
     %tr
       %td
         = deal.id
@@ -18,5 +18,5 @@
       %td
         = deal.bet
       %td
-        %button.btn.btn-secondary.accept_deal
+        %button.btn.btn-secondary.accept_deal{ deal_id: deal.id }
           Accept
