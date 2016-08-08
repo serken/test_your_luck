@@ -34,7 +34,7 @@ class User < ApplicationRecord
   private
 
   def winned_deals
-    deals.where(winner: self.id)
+    deals.where(winner: self)
   end
 
   def validate_score

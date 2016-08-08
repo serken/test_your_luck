@@ -9,7 +9,7 @@
     %th
       Bet
     %th
-  - @opened_deals.each do |deal|
+  - @opened_deals.map do |deal|
     %tr
       %td
         = deal.id

@@ -22,7 +22,7 @@ Test your luck
       Bet
     %th
       Winner
-  - @closed_deals.each do |deal|
+  - @closed_deals.map do |deal|
     %tr
       %td
         = deal.id
