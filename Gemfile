@@ -18,6 +18,8 @@ gem 'coffee-rails', '~> 4.2'
 # See https://github.com/rails/execjs#readme for more supported runtimes
 gem 'therubyracer', platforms: :ruby
 
+gem 'hashie', '~> 2.0'
+
 gem 'devise'
 gem 'haml'
 gem 'coffee-script'

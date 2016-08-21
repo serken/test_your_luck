@@ -17,9 +17,9 @@ class Payeer
   }
 
   def initialize(account, api_id, api_secret, options = {})
-    @account = account # P42054359
-    @api_id = api_id # 222846516  # 223348159
-    @api_secret = api_secret # s1nIe54G1ndQbwsv # Yx8lUs0COzYa3TlZ
+    @account = account
+    @api_id = api_id
+    @api_secret = api_secret
     @config = DEFAULTS.merge(options)
     @logger = Logger.new @config[:log] ? STDOUT : nil
   end

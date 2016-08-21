@@ -2,6 +2,12 @@ class ProfilesController < ApplicationController
   def index
   end
 
+  def prepare_payment
+    @desc = Base64.encode64('Description_test')
+    key = TestYourLuck.config.payeer.merchant_id
+  end
+
+
   def make_deposit
     if current_user.deposit amount_params[:amount].to_f
       flash[:success] = 'Updated'
