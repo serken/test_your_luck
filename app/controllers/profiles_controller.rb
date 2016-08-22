@@ -3,8 +3,19 @@ class ProfilesController < ApplicationController
   end
 
   def prepare_payment
-    @desc = Base64.encode64('Description_test')
-    key = TestYourLuck.config.payeer.merchant_id
+    payment_params = {
+      m_shop: TestYourLuck.config.payeer.merchant_id,
+      m_orderid: '1',
+      m_amount: params[:amount],
+      m_curr: 'USD',
+      m_desc: Base64.encode64('Description_test'),
+      m_key: TestYourLuck.config.payeer.merchant_secret
+    }
+
+    sign = (Digest::SHA256.hexdigest(payment_params.values.join(':'))).upcase
+    payment_params.delete(:m_key)
+
+    render json: payment_params.merge(m_sign: sign)
   end
 
 

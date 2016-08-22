@@ -1,16 +1,8 @@
 = label 'deposit_amount', 'Deposit amount'
 = text_field 'deposit', 'amount'
 
-%button.btn.btn-secondary.make_deposit{data: { href: '/profile/make_deposit' }}
+%button.btn.btn-secondary.make_deposit
   Submit
 
-= form_tag 'https://payeer.com/merchant' do
-  = hidden_field_tag 'm_shop', TestYourLuck.config.payeer.merchant_id
-  = hidden_field_tag 'm_orderid', 1
-  = hidden_field_tag 'm_amount', 5
-  = hidden_field_tag 'm_curr', 'USD'
-  = hidden_field_tag 'm_desc', @desc
-  = hidden_field_tag 'm_sign', @sign
-  = hidden_field_tag 'form[ps]', 2609
-  = hidden_field_tag 'form[curr[2609]]', 'USD'
-  = submit_tag "send", name: 'm_process'
+%button.btn.btn-secondary.make_deposit_test{data: { href: '/profile/make_deposit' }}
+  Test
