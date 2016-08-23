@@ -1,0 +1,26 @@
+
+%table.table.table-bordered
+  %thead.thead-inverse
+    %th
+      Wallet
+    %th
+      Operation
+    %th
+      Amount
+    %th
+      Status
+    %th
+      Created
+  - if @payment_histories.present?
+    - @payment_histories.map do |history|
+      %tr
+        %td
+          = history.wallet_type
+        %td
+          = history.operation
+        %td
+          = history.amount
+        %td
+          = history.status
+        %td
+          = history.created_at

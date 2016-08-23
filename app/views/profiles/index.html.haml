@@ -1,6 +1,6 @@
 %div.container
   %row
-    .col-md-5.offset-md-3
+    .col-md-7.offset-md-2
       %ul.nav.nav-tabs{role: 'tablist'}
         %li.nav-item
           %a.nav-link.active{'data-toggle': 'tab', href: "#profile", role: 'tab'}
@@ -14,11 +14,15 @@
         %li.nav-item
           %a.nav-link{'data-toggle': 'tab', href: "#withdraw", role: 'tab'}
             Withdraw
+        %li.nav-item
+          %a.nav-link{'data-toggle': 'tab', href: "#payment_history", role: 'tab'}
+            Payment History
+
 
 %br
 %div.container
   %row
-    .col-md-4.offset-md-4
+    .col-md-7.offset-md-3
       %div.tab-content
         %div.tab-pane.active{role: 'tabpanel', id: 'profile'}
           = render partial: 'show_profile'
@@ -28,3 +32,5 @@
           = render partial: 'deposit'
         %div.tab-pane{role: 'tabpanel', id: 'withdraw'}
           = render partial: 'withdraw'
+        %div.tab-pane{role: 'tabpanel', id: 'payment_history'}
+          = render partial: 'payment_history'

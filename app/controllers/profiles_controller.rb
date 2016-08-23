@@ -1,5 +1,6 @@
 class ProfilesController < ApplicationController
   def index
+    @payment_histories = current_user.payment_histories
   end
 
   def prepare_payment
@@ -15,6 +16,13 @@ class ProfilesController < ApplicationController
     sign = (Digest::SHA256.hexdigest(payment_params.values.join(':'))).upcase
     payment_params.delete(:m_key)
 
+    current_user.payment_histories << PaymentHistory.create(
+      wallet_type: 'Payeer',
+      status: 'Open',
+      operation: 'Deposit',
+      amount: params[:amount],
+      sign: sign
+    )
     render json: payment_params.merge(m_sign: sign)
   end
 
@@ -22,6 +30,12 @@ class ProfilesController < ApplicationController
   def make_deposit
     if current_user.deposit amount_params[:amount].to_f
       flash[:success] = 'Updated'
+      current_user.payment_histories << PaymentHistory.create(
+        wallet_type: 'Payeer',
+        status: 'Closed',
+        operation: 'Deposit',
+        amount: amount_params[:amount]
+      )
     else
       flash[:danger] = 'Something went wrong'
     end
@@ -31,6 +45,12 @@ class ProfilesController < ApplicationController
   def make_withdraw
     if current_user.withdraw amount_params[:amount].to_f
       flash[:success] = 'Updated'
+      current_user.payment_histories << PaymentHistory.create(
+        wallet_type: 'Payeer',
+        status: 'Closed',
+        operation: 'Withdraw',
+        amount: amount_params[:amount]
+      )
     else
       flash[:danger] = 'Something went wrong'
     end

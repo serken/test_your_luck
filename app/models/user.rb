@@ -5,6 +5,7 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :trackable, :validatable
   has_many :first_deals, :class_name => 'Deal', :foreign_key => 'first_user_id'
   has_many :second_deals, :class_name => 'Deal', :foreign_key => 'second_user_id'
+  has_many :payment_histories
   before_save :validate_score
 
   def deals
